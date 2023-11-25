@@ -1,7 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import {_getUsers} from "./_DATA";
-import LoginPage from "./login/LoginPage";
+import LoginPage from "./components/LoginPage";
 
 function App() {
 
