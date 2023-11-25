@@ -5,7 +5,8 @@ const config = {
         name: 'CLIENT',
         color: 'red'
     },
-    collectCoverage: true
+    collectCoverage: true,
+    testPathIgnorePatterns: ['./node_modules/'],
 };
 
 module.exports = config;
