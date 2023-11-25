@@ -4,7 +4,7 @@ const LoginPage = (users) => {
 
     const [user, setUser] = useState('')
 
-    function handleOnChange(e) {
+    const handleOnChange = (e) => {
         e.preventDefault();
         const user = e.target.value;
         setUser(user)

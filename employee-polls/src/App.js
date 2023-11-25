@@ -25,10 +25,10 @@ function App() {
         getUsers();
     }, []);
 
-    const myStyle = {
-        color: "blue",
-        listStyleType: "none"
-    }
+    // const myStyle = {
+    //     color: "blue",
+    //     listStyleType: "none"
+    // }
 
     return (
         <div className="App">
