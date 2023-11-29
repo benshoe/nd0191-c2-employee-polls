@@ -1,6 +1,9 @@
 import {connect} from "react-redux";
+import {handleInitialData} from "../actions/shared";
 
 const Home = (props) => {
+
+    handleInitialData();
 
     return (
         <>

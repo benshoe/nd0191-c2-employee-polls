@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {handleSelectUser, setAuthedUser} from "../actions/authedUser";
+import {handleSelectUser} from "../actions/authedUser";
 import {connect} from "react-redux";
 import {useNavigate} from "react-router-dom";
 

@@ -7,6 +7,7 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Logout from "./components/Logout";
+import {handleInitialData} from "./actions/shared";
 
 function App(props) {
 
@@ -14,6 +15,7 @@ function App(props) {
 
     useEffect(() => {
         const getUsers = async () => {
+            props.dispatch(handleInitialData())
             console.log('getUsers wordt aangeroepen')
             const resp = await _getUsers();
             let entries = Object.entries(resp);
@@ -28,7 +30,7 @@ function App(props) {
         };
 
         getUsers();
-    }, []);
+    }, [props]);
 
     return (
         <div className="App">
