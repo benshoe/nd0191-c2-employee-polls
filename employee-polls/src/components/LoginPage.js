@@ -17,6 +17,7 @@ const LoginPage = (props) => {
         const {dispatch} = props;
         console.log(`The logged in user is: ${user}`);
         dispatch(handleSelectUser(user));
+        // TODO navigate to home
     }
 
     return (
