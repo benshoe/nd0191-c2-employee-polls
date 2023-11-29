@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import {useEffect} from "react";
 import {handleLogoutUser} from "../actions/authedUser";
+import PropTypes from "prop-types";
 
 const Logout = (props) => {
 
@@ -11,7 +12,7 @@ const Logout = (props) => {
         }
 
         logout();
-    }, []);
+    }, [props]);
 
     return (
         <div>
@@ -27,3 +28,8 @@ const mapStateToProps = ({authedUser}) => {
 }
 
 export default connect(mapStateToProps)(Logout);
+
+Logout.propTypes = {
+    user: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired
+}
