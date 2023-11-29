@@ -3,6 +3,8 @@ import {useEffect, useState} from "react";
 import {_getUsers} from "./_DATA";
 import LoginPage from "./components/LoginPage";
 import {connect} from "react-redux";
+import {Route, Routes} from "react-router-dom";
+import Home from "./components/Home";
 
 function App(props) {
 
@@ -26,25 +28,15 @@ function App(props) {
         getUsers();
     }, []);
 
-    const myStyle = {
-        color: "blue",
-        listStyleType: "none"
-    }
 
     return (
         <div className="App">
             <h1>Employee Polls</h1>
             {props.loading ? <LoginPage users={Object.keys(users)}/> :
                 (
-                    <ol style={myStyle}>
-                        {
-                            Object.keys(users).map((key) =>
-                            <li style={{marginBottom: "50px"}} key={users[key].id}>
-                                <img width={150} src={users[key].avatarURL} alt={users[key].avatarURL}/>
-                                <div>{users[key].name}</div>
-                            </li>)
-                        }
-                    </ol>
+                    <Routes>
+                        <Route path="/" exact element={<Home />}/>
+                    </Routes>
                 )}
         </div>
     );
