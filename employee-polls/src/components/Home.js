@@ -1,5 +1,6 @@
 import {connect} from "react-redux";
 import {handleInitialData} from "../actions/shared";
+import PropTypes from "prop-types";
 
 const Home = (props) => {
 
@@ -18,3 +19,7 @@ const mapStateToProps = ({authedUser}) => (
     })
 
 export default connect(mapStateToProps)(Home)
+
+Home.propTypes = {
+    user: PropTypes.object.isRequired,
+}

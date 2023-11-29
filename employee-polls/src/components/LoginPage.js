@@ -2,6 +2,7 @@ import {useState} from "react";
 import {handleSelectUser} from "../actions/authedUser";
 import {connect} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const LoginPage = (props) => {
 
@@ -38,3 +39,8 @@ const LoginPage = (props) => {
 }
 
 export default connect()(LoginPage);
+
+LoginPage.propTypes = {
+    users: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+}
