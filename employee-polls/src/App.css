@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+/*-------------*/
+
+.menu {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  background-color: #7f7f7f;
+}
+
+.menu li {
+  display: inline-block;
+  padding: 10px;
+  list-style: none;
+}
+
+.menu li:not(:last-of-type) {
+  margin: 0 5px;
+}
+
+.menu li:last-of-type {
+  margin-left: auto;
+}

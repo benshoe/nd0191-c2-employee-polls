@@ -5,6 +5,8 @@ import LoginPage from "./components/LoginPage";
 import {connect} from "react-redux";
 import {Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
+import Nav from "./components/Nav";
+import Logout from "./components/Logout";
 
 function App(props) {
 
@@ -28,14 +30,15 @@ function App(props) {
         getUsers();
     }, []);
 
-
     return (
         <div className="App">
+            <Nav />
             <h1>Employee Polls</h1>
             {props.loading ? <LoginPage users={Object.keys(users)}/> :
                 (
                     <Routes>
                         <Route path="/" exact element={<Home />}/>
+                        <Route path="/logout" exact element={<Logout /> }/>
                     </Routes>
                 )}
         </div>
