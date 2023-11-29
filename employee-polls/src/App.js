@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Logout from "./components/Logout";
 import {handleInitialData} from "./actions/shared";
+import PropTypes from "prop-types";
 
 function App(props) {
 
@@ -16,20 +17,11 @@ function App(props) {
     useEffect(() => {
         const getUsers = async () => {
             props.dispatch(handleInitialData())
-            console.log('getUsers wordt aangeroepen')
             const resp = await _getUsers();
-            let entries = Object.entries(resp);
-            let from = Array.from(entries);
-            console.log('----');
-            console.log(from);
-            console.log(`Keys: ${Object.keys(resp)}`);
-            console.log(`Values: ${JSON.stringify(Object.values(resp))}`);
-            console.log(`Entries: ${JSON.stringify(Object.entries(resp))}`);
-
             setUsers(resp);
         };
 
-        getUsers();
+        getUsers().then(() => console.log("Users loaded")).catch((err) => console.error(err));
     }, [props]);
 
     return (
@@ -53,3 +45,8 @@ const mapStateToProps = ({authedUser}) => (
     })
 
 export default connect(mapStateToProps)(App);
+
+App.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
+}

@@ -21,5 +21,5 @@ const mapStateToProps = ({authedUser}) => (
 export default connect(mapStateToProps)(Home)
 
 Home.propTypes = {
-    user: PropTypes.object.isRequired,
+    user: PropTypes.string.isRequired,
 }
