@@ -1,10 +1,13 @@
 import {useState} from "react";
 import {handleSelectUser, setAuthedUser} from "../actions/authedUser";
 import {connect} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const LoginPage = (props) => {
 
     const [user, setUser] = useState('')
+
+    const navigate = useNavigate();
 
     const handleOnChange = (e) => {
         e.preventDefault();
@@ -17,7 +20,7 @@ const LoginPage = (props) => {
         const {dispatch} = props;
         console.log(`The logged in user is: ${user}`);
         dispatch(handleSelectUser(user));
-        // TODO navigate to home
+        navigate('/');
     }
 
     return (
