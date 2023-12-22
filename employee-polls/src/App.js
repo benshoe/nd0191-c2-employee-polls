@@ -9,6 +9,7 @@ import Nav from "./components/Nav";
 import Logout from "./components/Logout";
 import {handleInitialData} from "./actions/shared";
 import PropTypes from "prop-types";
+import Dashboard from "./components/Dashboard";
 
 function App(props) {
 
@@ -32,6 +33,7 @@ function App(props) {
                 (
                     <Routes>
                         <Route path="/" exact element={<Home />}/>
+                        <Route path="/dashboard" exact element={<Dashboard /> }/>
                         <Route path="/logout" exact element={<Logout /> }/>
                     </Routes>
                 )}
