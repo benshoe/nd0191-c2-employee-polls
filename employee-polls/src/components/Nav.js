@@ -1,16 +1,23 @@
 import {Link} from "react-router-dom";
+import {connect} from "react-redux";
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <nav className="nav">
             <ul className="menu">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/polls">My polls</Link></li>
                 <li><Link to="/dashboard">Dashboard</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li><Link to="/logout">Logout {props.user}</Link></li>
             </ul>
         </nav>
     )
 }
 
-export default Nav;
+const mapStateToProps = ({authedUser}) => (
+    {
+        user: authedUser,
+    })
+
+
+export default connect(mapStateToProps)(Nav);
