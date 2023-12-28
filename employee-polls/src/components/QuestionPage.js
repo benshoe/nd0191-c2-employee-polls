@@ -17,6 +17,9 @@ const QuestionPage = (props) => {
 
     const avatar = props.users[props.question.author].avatarURL;
 
+    const answeredOne = props.question.optionOne.votes.includes(props.authedUser);
+    const answeredTwo = props.question.optionTwo.votes.includes(props.authedUser);
+
     return <div>
 
         <h3>Question</h3>
@@ -25,8 +28,8 @@ const QuestionPage = (props) => {
 
         <p>Would you rather:</p>
         <form className="poll-radio">
-            <label><input type="radio" name="answer" />{props.question.optionOne.text}</label>
-            <label><input type="radio" name="answer" />{props.question.optionTwo.text}</label>
+            <label><input type="radio" name="answer" checked={answeredOne} />{props.question.optionOne.text}</label>
+            <label><input type="radio" name="answer" checked={answeredTwo} />{props.question.optionTwo.text}</label>
         </form>
 
     </div>
