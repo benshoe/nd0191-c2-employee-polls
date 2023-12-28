@@ -9,7 +9,7 @@ const Polls = (props) => {
             {
                 props.questionIds.map((id) => (
                     <li key={id}>
-                        <Poll id={id} />
+                        <Poll id={id}/>
                     </li>
                 ))
             }
@@ -17,10 +17,14 @@ const Polls = (props) => {
     </div>
 }
 
-const mapStateToProps = ({questions}) => ({
-    questionIds: Object.keys(questions).sort(
-        (a, b) => questions[b].timestamp - questions[a].timestamp
-    )
-});
+const mapStateToProps = ({authedUser, questions, users}, {answered}) => {
+    const answeredIds = Object.keys(users[authedUser].answers);
+
+    const questionIds = Object.keys(questions).filter(id => answered ? answeredIds.includes(id) : !answeredIds.includes(id)).sort(
+        (a, b) => questions[b].timestamp - questions[a].timestamp);
+    return {
+        questionIds
+    }
+};
 
 export default connect(mapStateToProps)(Polls);
