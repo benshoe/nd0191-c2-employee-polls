@@ -7,7 +7,7 @@ const withRouter = (Component) => {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
-        return <Component {...props} router={{location, navigate, params}} />;
+        return <Component {...props} router={{location, navigate, params}}/>;
     }
 
     return ComponentWithRouterProp;
@@ -20,6 +20,10 @@ const QuestionPage = (props) => {
     const answeredOne = props.question.optionOne.votes.includes(props.authedUser);
     const answeredTwo = props.question.optionTwo.votes.includes(props.authedUser);
 
+    const usersAnsweredOne = props.question.optionOne.votes.length;
+    const usersAnsweredTwo = props.question.optionTwo.votes.length;
+    const numberOfUsers = Object.keys(props.users).length;
+
     return <div>
 
         <h3>Question</h3>
@@ -28,8 +32,28 @@ const QuestionPage = (props) => {
 
         <p>Would you rather:</p>
         <form className="poll-radio">
-            <label><input type="radio" name="answer" checked={answeredOne} />{props.question.optionOne.text}</label>
-            <label><input type="radio" name="answer" checked={answeredTwo} />{props.question.optionTwo.text}</label>
+            <table>
+                <thead>
+                <td>You selected</td>
+                <td>Option</td>
+                <td>Number of voters</td>
+                <td>Percentage voted</td>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="radio" name="answer" checked={answeredOne}/></td>
+                    <td>{props.question.optionOne.text}</td>
+                    <td>{props.question.optionOne.votes.length}</td>
+                    <td>{parseFloat(usersAnsweredOne/numberOfUsers) * 100}%</td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="answer" checked={answeredTwo}/></td>
+                    <td>{props.question.optionTwo.text}</td>
+                    <td>{props.question.optionTwo.votes.length}</td>
+                    <td>{(usersAnsweredTwo / numberOfUsers) * 100}%</td>
+                </tr>
+                </tbody>
+            </table>
         </form>
 
     </div>
@@ -39,10 +63,7 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
     const {id} = props.router.params;
 
     return {
-        id,
-        authedUser: authedUser,
-        question: questions[id],
-        users,
+        id, authedUser: authedUser, question: questions[id], users: users,
     }
 };
 
