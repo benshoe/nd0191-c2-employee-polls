@@ -15,22 +15,31 @@ const withRouter = (Component) => {
 const QuestionPage = (props) => {
     console.log(props.id);
 
+    const avatar = props.users[props.question.author].avatarURL;
+
     return <div>
-        <div>Question</div>
+
+        <h3>Question</h3>
+        <img src={avatar} alt={`Avatar of ${props.question.author}`} className="avatar"/>
+        <div>Posted by: {props.question.author}</div>
+
         <p>Would you rather:</p>
-        <Poll id={props.id} />
+        <form className="poll-radio">
+            <label><input type="radio" name="answer" />{props.question.optionOne.text}</label>
+            <label><input type="radio" name="answer" />{props.question.optionTwo.text}</label>
+        </form>
+
     </div>
 }
 
 const mapStateToProps = ({authedUser, questions, users}, props) => {
-    console.log(props)
-    console.log(props.router)
     const {id} = props.router.params;
 
     return {
         id,
         authedUser: authedUser,
-        question: questions[id]
+        question: questions[id],
+        users,
     }
 };
 

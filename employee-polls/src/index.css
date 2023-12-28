@@ -22,3 +22,15 @@ li {
   list-style-type: none;
   text-decoration: none;
 }
+
+.avatar {
+  height: 150px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.poll-radio {
+  display: grid;
+  text-align: left;
+  margin-left: 800px;
+}
