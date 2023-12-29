@@ -34,3 +34,11 @@ li {
   text-align: left;
   margin-left: 400px;
 }
+
+.posted-by {
+  margin-bottom: 30px;
+}
+
+thead {
+  font-weight: bold;
+}

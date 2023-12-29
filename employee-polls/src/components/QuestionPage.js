@@ -25,11 +25,10 @@ const QuestionPage = (props) => {
     return <div>
         <h3>Question</h3>
         <img src={avatar} alt={`Avatar of ${props.question.author}`} className="avatar"/>
-        <div>Posted by: {props.question.author}</div>
+        <div className="posted-by">Posted by: {props.question.author}</div>
 
-        <p>Would you rather:</p>
         { (answeredOne || answeredTwo) && <AnsweredPoll question={props.question} users={props.users} answeredOne={answeredOne} /> }
-        { (!answeredOne && ! answeredTwo && <UnansweredPoll /> )}
+        { (!answeredOne && ! answeredTwo && <UnansweredPoll question={props.question} /> )}
     </div>
 }
 
