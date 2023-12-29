@@ -42,3 +42,8 @@ li {
 thead {
   font-weight: bold;
 }
+
+.polls-list {
+  margin-top: 40px;
+  font-weight: bolder;
+}

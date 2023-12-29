@@ -1,21 +1,19 @@
 import {connect} from "react-redux";
-import Poll from "./Poll";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import AnsweredPoll from "./AnsweredPoll";
 import UnansweredPoll from "./UnansweredPoll";
+import PropTypes from "prop-types";
 
 const withRouter = (Component) => {
-    const ComponentWithRouterProp = (props) => {
+    return (props) => {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
         return <Component {...props} router={{location, navigate, params}}/>;
-    }
-
-    return ComponentWithRouterProp;
+    };
 }
+
 const QuestionPage = (props) => {
-    console.log(props.id);
 
     const avatar = props.users[props.question.author].avatarURL;
 
@@ -28,7 +26,7 @@ const QuestionPage = (props) => {
         <div className="posted-by">Posted by: {props.question.author}</div>
 
         { (answeredOne || answeredTwo) && <AnsweredPoll question={props.question} users={props.users} answeredOne={answeredOne} /> }
-        { (!answeredOne && ! answeredTwo && <UnansweredPoll question={props.question} /> )}
+        { (!answeredOne && ! answeredTwo && <UnansweredPoll question={props.question} authedUser={props.authedUser} /> )}
     </div>
 }
 
@@ -41,3 +39,9 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
 };
 
 export default withRouter(connect(mapStateToProps)(QuestionPage));
+
+QuestionPage.propTypes = {
+    question: PropTypes.object.isRequired,
+    users: PropTypes.array.isRequired,
+    authedUser: PropTypes.string.isRequired,
+}

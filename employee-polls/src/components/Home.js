@@ -9,21 +9,12 @@ const Home = () => {
 
     return (
         <div>
-            <div className="unanswered-polls">Unanswered polls</div>
+            <div className="polls-list">Unanswered polls</div>
                 <Polls answered={false} />
-            <div className="answered-polls">Answered polls</div>
+            <div className="polls-list">Answered polls</div>
                 <Polls answered={true} />
         </div>
     )
 }
 
-const mapStateToProps = ({authedUser}) => (
-    {
-        user: authedUser,
-    })
-
-export default connect(mapStateToProps)(Home)
-
-Home.propTypes = {
-    user: PropTypes.string.isRequired,
-}
+export default connect()(Home)

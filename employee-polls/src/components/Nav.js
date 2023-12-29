@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
 const Nav = (props) => {
     return (
@@ -21,3 +22,7 @@ const mapStateToProps = ({authedUser}) => (
 
 
 export default connect(mapStateToProps)(Nav);
+
+Nav.propTypes = {
+    user: PropTypes.string.isRequired,
+}

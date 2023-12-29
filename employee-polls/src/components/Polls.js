@@ -1,18 +1,22 @@
 import {connect} from "react-redux";
 import Poll from "./Poll";
+import PropTypes from "prop-types";
 
 const Polls = (props) => {
+
+    const polls = props.questionIds;
 
     return <div>
         <ul>
             {
-                props.questionIds.map((id) => (
+                polls.map((id) => (
                     <li key={id}>
                         <Poll id={id}/>
                     </li>
                 ))
             }
         </ul>
+        {polls.length === 0 && <div>No polls found here</div>}
     </div>
 }
 
@@ -27,3 +31,8 @@ const mapStateToProps = ({authedUser, questions, users}, {answered}) => {
 };
 
 export default connect(mapStateToProps)(Polls);
+
+
+Polls.propTypes = {
+    questionIds: PropTypes.array.isRequired,
+}

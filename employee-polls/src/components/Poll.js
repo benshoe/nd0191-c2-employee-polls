@@ -1,8 +1,8 @@
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Poll = (props) => {
-    console.log(props);
 
     const {id, optionOne, optionTwo} = props.question;
     const answeredOne = props.question.optionOne.votes.includes(props.authedUser);
@@ -27,3 +27,8 @@ const mapStateToProps = ({authedUser, users, questions}, {id}) => {
 };
 
 export default connect(mapStateToProps)(Poll);
+
+Poll.propTypes = {
+    question: PropTypes.object.isRequired,
+    authedUser: PropTypes.string.isRequired,
+}
