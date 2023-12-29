@@ -4,7 +4,6 @@ import Poll from "./Poll";
 const Polls = (props) => {
 
     return <div>
-        <h3 className="polls">Polls</h3>
         <ul>
             {
                 props.questionIds.map((id) => (

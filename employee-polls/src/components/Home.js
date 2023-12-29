@@ -2,31 +2,17 @@ import {connect} from "react-redux";
 import {handleInitialData} from "../actions/shared";
 import PropTypes from "prop-types";
 import Polls from "./Polls";
-import {useState} from "react";
 
 const Home = () => {
 
     handleInitialData();
 
-    const [answeredPolls, setAnsweredPolls] = useState(false);
-
-    const answered = (e) => {
-        const answeredPolls = e.target.value === 'Answered';
-        setAnsweredPolls(answeredPolls);
-    };
-
     return (
         <div>
-            <form>
-                <label>
-                        <input type="radio" name="polls" id="unanswered" value="Unanswered" onChange={answered} defaultChecked />Unanswered
-                </label>
-
-                <label>
-                    <input type="radio" name="polls" id="answered" value="Answered" onChange={answered}/>Answered
-                </label>
-            </form>
-            <Polls answered={answeredPolls}/>
+            <div className="unanswered-polls">Unanswered polls</div>
+                <Polls answered={false} />
+            <div className="answered-polls">Answered polls</div>
+                <Polls answered={true} />
         </div>
     )
 }
