@@ -8,7 +8,7 @@ const Nav = (props) => {
             <ul className="menu">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/polls">My polls</Link></li>
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/leaderboard">Leaderboard</Link></li>
                 <li><Link to="/logout">Logout {props.user}</Link></li>
             </ul>
         </nav>

@@ -9,8 +9,8 @@ import Nav from "./components/Nav";
 import Logout from "./components/Logout";
 import {handleInitialData} from "./actions/shared";
 import PropTypes from "prop-types";
-import Dashboard from "./components/Dashboard";
 import QuestionPage from "./components/QuestionPage";
+import Leaderboard from "./components/Leaderboard";
 
 function App(props) {
 
@@ -34,7 +34,7 @@ function App(props) {
                 (
                     <Routes>
                         <Route path="/" exact element={<Home />}/>
-                        <Route path="/dashboard" exact element={<Dashboard /> }/>
+                        <Route path="/leaderboard" exact element={<Leaderboard /> }/>
                         <Route path="/question/:id" element={<QuestionPage /> }/>
                         <Route path="/logout" exact element={<Logout /> }/>
                     </Routes>
