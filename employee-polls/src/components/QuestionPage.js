@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import Poll from "./Poll";
 import {useLocation, useNavigate, useParams} from "react-router-dom";
 import AnsweredPoll from "./AnsweredPoll";
+import UnansweredPoll from "./UnansweredPoll";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -28,7 +29,7 @@ const QuestionPage = (props) => {
 
         <p>Would you rather:</p>
         { (answeredOne || answeredTwo) && <AnsweredPoll question={props.question} users={props.users} answeredOne={answeredOne} /> }
-        { (!answeredOne && ! answeredTwo && <div>Poll is not answered</div> )}
+        { (!answeredOne && ! answeredTwo && <UnansweredPoll /> )}
     </div>
 }
 
