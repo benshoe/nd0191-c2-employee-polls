@@ -24,5 +24,5 @@ const mapStateToProps = ({authedUser}) => (
 export default connect(mapStateToProps)(Nav);
 
 Nav.propTypes = {
-    user: PropTypes.string.isRequired,
+    user: PropTypes.string,
 }
