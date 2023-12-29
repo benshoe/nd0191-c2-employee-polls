@@ -31,30 +31,30 @@ const QuestionPage = (props) => {
         <div>Posted by: {props.question.author}</div>
 
         <p>Would you rather:</p>
-        <form className="poll-radio">
+        <div className="poll-radio">
             <table>
                 <thead>
-                <td>You selected</td>
+                <td>You answered</td>
                 <td>Option</td>
                 <td>Number of voters</td>
                 <td>Percentage voted</td>
                 </thead>
                 <tbody>
-                <tr>
-                    <td><input type="radio" name="answer" checked={answeredOne}/></td>
-                    <td>{props.question.optionOne.text}</td>
-                    <td>{props.question.optionOne.votes.length}</td>
-                    <td>{parseFloat(usersAnsweredOne/numberOfUsers) * 100}%</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="answer" checked={answeredTwo}/></td>
-                    <td>{props.question.optionTwo.text}</td>
-                    <td>{props.question.optionTwo.votes.length}</td>
-                    <td>{(usersAnsweredTwo / numberOfUsers) * 100}%</td>
-                </tr>
+                    <tr>
+                        <td>{answeredOne && <div>X</div>}</td>
+                        <td>{props.question.optionOne.text}</td>
+                        <td>{props.question.optionOne.votes.length}</td>
+                        <td>{parseFloat(usersAnsweredOne/numberOfUsers) * 100}%</td>
+                    </tr>
+                    <tr>
+                        <td>{answeredTwo && <div>X</div>}</td>
+                        <td>{props.question.optionTwo.text}</td>
+                        <td>{props.question.optionTwo.votes.length}</td>
+                        <td>{(usersAnsweredTwo / numberOfUsers) * 100}%</td>
+                    </tr>
                 </tbody>
             </table>
-        </form>
+        </div>
 
     </div>
 }
