@@ -29,6 +29,12 @@ li {
   margin: 10px;
 }
 
+.avatar-small {
+  height: 50px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
 .poll-radio {
   display: grid;
   text-align: left;
@@ -46,4 +52,8 @@ thead {
 .polls-list {
   margin-top: 40px;
   font-weight: bolder;
+}
+
+.leaderboard {
+  display: grid;
 }

@@ -1,10 +1,47 @@
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 
-const Leaderboard = () => {
+const Leaderboard = (props) => {
 
     return (
-        <h1>Leaderboard</h1>
+        <div className="leaderboard">
+            <h1>Leaderboard</h1>
+            <table>
+                <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Avatar</td>
+                    <td># questions asked</td>
+                    <td># questions answered</td>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    Object.values(props.users)
+                        .map(user =>
+                            <tr key={user.id}>
+                                <td>{user.name}</td>
+                                <td><img className="avatar-small" src={user.avatarURL}/></td>
+                                <td>{user.questions.length}</td>
+                                <td>{Object.keys(user.answers).length}</td>
+                            </tr>
+                        )
+                }
+                </tbody>
+            </table>
+        </div>
     )
 }
 
-export default connect()(Leaderboard);
+const mapStateToProps = ({users}) => {
+    return {
+        users: Object.values(users)
+            .toSorted((a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length),
+    }
+};
+
+export default connect(mapStateToProps)(Leaderboard);
+
+Leaderboard.propTypes = {
+    users: PropTypes.object.isRequired,
+}
