@@ -15,7 +15,8 @@ const withRouter = (Component) => {
 
 const QuestionPage = (props) => {
 
-    const avatar = props.users[props.question.author].avatarURL;
+    const author = props.users[props.question.author];
+    const avatar = author.avatarURL;
 
     const answeredOne = props.question.optionOne.votes.includes(props.authedUser);
     const answeredTwo = props.question.optionTwo.votes.includes(props.authedUser);
@@ -23,7 +24,7 @@ const QuestionPage = (props) => {
     return <div>
         <h3>Question</h3>
         <img src={avatar} alt={`Avatar of ${props.question.author}`} className="avatar"/>
-        <div className="posted-by">Posted by: {props.question.author}</div>
+        <div className="posted-by">Posted by: {author.name}</div>
 
         { (answeredOne || answeredTwo) && <AnsweredPoll question={props.question} users={props.users} answeredOne={answeredOne} /> }
         { (!answeredOne && ! answeredTwo && <UnansweredPoll question={props.question} authedUser={props.authedUser} /> )}
@@ -42,6 +43,6 @@ export default withRouter(connect(mapStateToProps)(QuestionPage));
 
 QuestionPage.propTypes = {
     question: PropTypes.object.isRequired,
-    users: PropTypes.array.isRequired,
+    users: PropTypes.object.isRequired,
     authedUser: PropTypes.string.isRequired,
 }
