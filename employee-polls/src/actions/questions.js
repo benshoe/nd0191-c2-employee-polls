@@ -11,7 +11,6 @@ export function receiveQuestions(questions) {
 }
 
 function answerQuestion({authedUser, qid, answer}) {
-    console.log('En we slaan de vraag op', authedUser, qid, answer);
     return {
         type: ANSWER_QUESTION,
         authedUser,

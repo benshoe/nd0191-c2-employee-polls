@@ -19,7 +19,6 @@ const LoginPage = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const {dispatch} = props;
-        console.log(`The logged in user is: ${user}`);
         dispatch(handleSelectUser(user));
         navigate('/');
     }
