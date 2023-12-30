@@ -1,11 +1,7 @@
 import {connect} from "react-redux";
-import {handleInitialData} from "../actions/shared";
-import PropTypes from "prop-types";
 import Polls from "./Polls";
 
 const Home = () => {
-
-    handleInitialData();
 
     return (
         <div>

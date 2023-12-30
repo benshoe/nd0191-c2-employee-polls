@@ -37,9 +37,8 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
             author: authedUser,
         })
             .then((question) => dispatch(addQuestion(question)))
-            .then((question) => console.log(`Question added`, question))
             .catch((err) => {
-                console.error('Error in handleAddQustion: ', err);
+                console.error('Error in handleAddQuestion: ', err);
                 alert('An error occurred adding the poll. Try again.');
             })
     }
