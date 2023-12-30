@@ -43,5 +43,5 @@ const mapStateToProps = ({users}) => {
 export default connect(mapStateToProps)(Leaderboard);
 
 Leaderboard.propTypes = {
-    users: PropTypes.object.isRequired,
+    users: PropTypes.array.isRequired,
 }

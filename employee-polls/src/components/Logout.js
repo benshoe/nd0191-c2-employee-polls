@@ -30,6 +30,6 @@ const mapStateToProps = ({authedUser}) => {
 export default connect(mapStateToProps)(Logout);
 
 Logout.propTypes = {
-    user: PropTypes.object.isRequired,
+    user: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired
 }

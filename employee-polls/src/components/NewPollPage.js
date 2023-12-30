@@ -1,10 +1,14 @@
 import {connect} from "react-redux";
 import {useState} from "react";
+import {handleAddQuestion} from "../actions/questions";
+import {useNavigate} from "react-router-dom";
 
-const NewPollPage = () => {
+const NewPollPage = ({dispatch}) => {
 
     const [optionOne, setOptionOne] = useState('');
     const [optionTwo, setOptionTwo] = useState('');
+
+    const navigate = useNavigate();
 
     const handleChangeOne = (e) => {
         setOptionOne(e.target.value);
@@ -17,6 +21,9 @@ const NewPollPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        dispatch(handleAddQuestion(optionOne, optionTwo));
+
+        navigate("/");
     };
 
     return (
