@@ -7,8 +7,9 @@ const Nav = (props) => {
         <nav className="nav">
             <ul className="menu">
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/polls">My polls</Link></li>
                 <li><Link to="/leaderboard">Leaderboard</Link></li>
+                <li><Link className="link-button" to="/add">New poll</Link></li>
+                <h1 className="nav-title">Employee polls</h1>
                 <li><Link to="/logout">Logout {props.user}</Link></li>
             </ul>
         </nav>

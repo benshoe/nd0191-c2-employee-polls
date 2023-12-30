@@ -27,7 +27,7 @@ const UnansweredPoll = ({question, authedUser, dispatch}) => {
                 <label><input type="radio" name="unansweredPoll" onChange={handleChange} value="optionOne" /> {question.optionOne.text}</label>
                 <label><input type="radio" name="unansweredPoll" onChange={handleChange} value="optionTwo" /> {question.optionTwo.text}</label>
             </div>
-            <button onClick={(e) => handleSaveQuestion(e)}>Submit</button>
+            <button className="btn" disabled={answer === ""} onClick={(e) => handleSaveQuestion(e)}>Submit</button>
         </div>
     )
 }

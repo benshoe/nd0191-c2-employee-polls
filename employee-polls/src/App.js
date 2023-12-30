@@ -11,6 +11,7 @@ import {handleInitialData} from "./actions/shared";
 import PropTypes from "prop-types";
 import QuestionPage from "./components/QuestionPage";
 import Leaderboard from "./components/Leaderboard";
+import NewPollPage from "./components/NewPollPage";
 
 function App(props) {
 
@@ -29,13 +30,13 @@ function App(props) {
     return (
         <div className="App">
             <Nav />
-            <h1>Employee Polls</h1>
             {props.loading ? <LoginPage users={Object.keys(users)}/> :
                 (
                     <Routes>
                         <Route path="/" exact element={<Home />}/>
                         <Route path="/leaderboard" exact element={<Leaderboard /> }/>
                         <Route path="/question/:id" element={<QuestionPage /> }/>
+                        <Route path="/add" element={<NewPollPage /> }/>
                         <Route path="/logout" exact element={<Logout /> }/>
                     </Routes>
                 )}
