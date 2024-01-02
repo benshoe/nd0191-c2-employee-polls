@@ -5,7 +5,6 @@ export function authedUser(state = null, action) {
         case SET_AUTHED_USER:
             return action.id;
         case LOGOUT_AUTHED_USER:
-            console.log(state);
             return null;
         default:
             return state;
