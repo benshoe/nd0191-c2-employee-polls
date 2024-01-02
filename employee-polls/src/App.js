@@ -18,13 +18,13 @@ function App(props) {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        const getUsers = async () => {
+        const loadDataAndUsers = async () => {
             props.dispatch(handleInitialData())
             const resp = await _getUsers();
             setUsers(resp);
         };
 
-        getUsers().then(() => console.log("Users loaded")).catch((err) => console.error(err));
+        loadDataAndUsers().then(() => console.log("Users loaded")).catch((err) => console.error(err));
     }, [props]);
 
     return (
