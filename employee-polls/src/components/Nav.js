@@ -6,11 +6,11 @@ const Nav = (props) => {
     return (
         <nav className="nav">
             <ul className="menu">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/leaderboard">Leaderboard</Link></li>
-                <li><Link className="link-button" to="/add">New poll</Link></li>
+                <li key="home"><Link to="/">Home</Link></li>
+                <li key="leaderboard"><Link to="/leaderboard">Leaderboard</Link></li>
+                <li key="newpoll"><Link className="link-button" to="/add">New poll</Link></li>
                 <h1 className="nav-title">Employee polls</h1>
-                <li><Link to="/logout">Logout {props.user}</Link></li>
+                <li key="logout"><Link to="/logout">Logout {props.user}</Link></li>
             </ul>
         </nav>
     )
