@@ -12,8 +12,6 @@ const Home = (props) => {
                 <Polls answered={true}/>
             </div>
         )
-    } else {
-        return <div></div>
     }
 }
 
