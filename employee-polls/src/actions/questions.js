@@ -1,4 +1,4 @@
-import {_saveQuestion, _saveQuestionAnswer} from "../_DATA";
+import {saveQuestion, saveQuestionAnswer} from "../utils/api";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
@@ -31,7 +31,7 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     return (dispatch, getState) => {
         const {authedUser} = getState();
 
-        return _saveQuestion({
+        return saveQuestion({
             optionOneText,
             optionTwoText,
             author: authedUser,
@@ -48,7 +48,7 @@ export function handleAnswerQuestion(info) {
     return (dispatch) => {
         dispatch(answerQuestion(info));
 
-        return _saveQuestionAnswer(info)
+        return saveQuestionAnswer(info)
             .then(question => console.log(`Question is saved`, question))
             .catch((err) => {
                 console.warn("Error in handleAnswerQuestion", err);

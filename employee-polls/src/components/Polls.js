@@ -6,7 +6,7 @@ const Polls = (props) => {
 
     const polls = props.questionIds;
 
-    return <div>
+    return polls.length === 0 ? <div>No {props.answered ? 'answered' : 'unanswered' } polls</div> : <div>
         <ul>
             {
                 polls.map((id) => (
@@ -16,11 +16,17 @@ const Polls = (props) => {
                 ))
             }
         </ul>
-        {polls.length === 0 && <div>No polls found here</div>}
     </div>
 }
 
 const mapStateToProps = ({authedUser, questions, users}, {answered}) => {
+    console.log('authedUser: ', authedUser);
+    if (authedUser === null || authedUser === undefined) {
+        return {
+            questionIds: []
+        }
+    }
+
     const answeredIds = Object.keys(users[authedUser].answers);
 
     const questionIds = Object.keys(questions).filter(id => answered ? answeredIds.includes(id) : !answeredIds.includes(id)).sort(
@@ -34,5 +40,5 @@ export default connect(mapStateToProps)(Polls);
 
 
 Polls.propTypes = {
-    questionIds: PropTypes.array.isRequired,
+    questionIds: PropTypes.array,
 }

@@ -1,20 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import {Provider} from "react-redux";
 import {BrowserRouter as Router} from "react-router-dom";
-import {legacy_createStore} from "redux";
+import {createStore} from "redux";
 import middleware from "./middleware";
 import reducer from "./reducers";
+import App from "./components/App";
 
-const store = legacy_createStore(reducer, middleware);
+const store = createStore(reducer, middleware);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <App/>
+            <App />
         </Router>
-    </Provider>
+    </Provider>,
+    document.getElementById("root")
 );
