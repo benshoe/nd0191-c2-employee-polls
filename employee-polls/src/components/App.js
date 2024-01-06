@@ -12,6 +12,7 @@ import LoadingBarContainer from "react-redux-loading-bar";
 import QuestionPage from "./QuestionPage";
 import Leaderboard from "./Leaderboard";
 import NewPollPage from "./NewPollPage";
+import NotFound from "./NotFound";
 
 const App = (props) => {
 
@@ -31,6 +32,7 @@ const App = (props) => {
                     <Route path="/question/:id" element={<QuestionPage/>}/>
                     <Route path="/add" element={<NewPollPage/>}/>
                     <Route path="/logout" exact element={<Logout/>}/>
+                    <Route path="*" element={<NotFound />}/>
                 </Routes>)}
             </div>
         </Fragment>

@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import AnsweredPoll from "./AnsweredPoll";
 import UnansweredPoll from "./UnansweredPoll";
 import PropTypes from "prop-types";
+import NotFound from "./NotFound";
 
 const withRouter = (Component) => {
     return (props) => {
@@ -12,6 +13,11 @@ const withRouter = (Component) => {
 }
 
 const QuestionPage = (props) => {
+
+    console.log('props.question: ', props.question);
+    if (props.question === null || props.question === undefined) {
+        return <NotFound props={props.id} />
+    }
 
     const author = props.users[props.question.author];
     const avatar = author.avatarURL;
@@ -43,4 +49,5 @@ QuestionPage.propTypes = {
     question: PropTypes.object.isRequired,
     users: PropTypes.object.isRequired,
     authedUser: PropTypes.string.isRequired,
+    id: PropTypes.string,
 }
