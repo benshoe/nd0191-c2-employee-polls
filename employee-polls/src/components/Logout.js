@@ -9,6 +9,7 @@ const Logout = (props) => {
         const logout = () => {
             const {dispatch} = props;
             dispatch(handleLogoutUser(props.user));
+            localStorage.clear();
         }
 
         logout();

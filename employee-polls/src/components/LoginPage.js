@@ -19,7 +19,12 @@ const LoginPage = (props) => {
         } else {
             setTargetUrl(currentUrl); // Save the target URL before login
         }
-    }, []);
+        const authedUser = localStorage.getItem('authedUser');
+        if(authedUser !== null) {
+            props.dispatch(handleSelectUser(authedUser));
+            navigate(targetUrl);
+        }
+    }, [props, navigate, targetUrl]);
 
     const handleOnChange = (e) => {
         e.preventDefault();
@@ -31,6 +36,7 @@ const LoginPage = (props) => {
         e.preventDefault();
         const {dispatch} = props;
         dispatch(handleSelectUser(user));
+        localStorage.setItem('authedUser', user);
         navigate(targetUrl);
     }
 
