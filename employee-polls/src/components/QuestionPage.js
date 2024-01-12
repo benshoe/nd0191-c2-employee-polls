@@ -14,7 +14,6 @@ const withRouter = (Component) => {
 
 const QuestionPage = (props) => {
 
-    console.log('props.question: ', props.question);
     if (props.question === null || props.question === undefined) {
         return <NotFound props={props.id} />
     }

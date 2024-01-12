@@ -20,7 +20,6 @@ const Polls = (props) => {
 }
 
 const mapStateToProps = ({authedUser, questions, users}, {answered}) => {
-    console.log('authedUser: ', authedUser);
     if (authedUser === null || authedUser === undefined) {
         return {
             questionIds: []
@@ -41,4 +40,5 @@ export default connect(mapStateToProps)(Polls);
 
 Polls.propTypes = {
     questionIds: PropTypes.array,
+    answered: PropTypes.bool,
 }
