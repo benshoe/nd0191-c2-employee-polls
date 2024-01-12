@@ -10,7 +10,7 @@ const Poll = (props) => {
 
     const answered = answeredOne || answeredTwo;
 
-    return <Link to={`/question/${id}`}>
+    return <Link to={`/questions/${id}`}>
         {!answered && <div className="question">Would you rather <b>{optionOne.text}</b> or <b>{optionTwo.text}</b>?</div>}
         {answered && answeredOne && <div>You would rather <b>{optionOne.text}</b> than <b>{optionTwo.text}</b></div>}
         {answered && answeredTwo && <div>You would rather <b>{optionTwo.text}</b> than <b>{optionOne.text}</b></div>}

@@ -29,7 +29,7 @@ const App = (props) => {
                 <Routes>
                     <Route path="/" exact element={<Home/>}/>
                     <Route path="/leaderboard" exact element={<Leaderboard/>}/>
-                    <Route path="/question/:id" element={<QuestionPage/>}/>
+                    <Route path="/questions/:id" element={<QuestionPage/>}/>
                     <Route path="/add" element={<NewPollPage/>}/>
                     <Route path="/logout" exact element={<Logout/>}/>
                     <Route path="*" element={<NotFound />}/>
