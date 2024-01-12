@@ -36,7 +36,11 @@ const LoginPage = (props) => {
         e.preventDefault();
         const {dispatch} = props;
         dispatch(handleSelectUser(user));
-        localStorage.setItem('authedUser', user);
+        // I had stored the authedUser so when a user is logged in and
+        // navigates in another tab to a /question/:id, /leaderboard or /add
+        // the page would be shown immediately for the logged-in user, without
+        // the need to log in. See also lines 22-26
+        // localStorage.setItem('authedUser', user);
         navigate(targetUrl);
     }
 
