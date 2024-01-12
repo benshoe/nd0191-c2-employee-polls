@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test NotFound renders correctly 1`] = `
+<h1>
+  Question with id: 
+  1234
+   not found
+</h1>
+`;

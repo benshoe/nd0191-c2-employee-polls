@@ -10,5 +10,5 @@ const NotFound = ({props}) => {
 export default NotFound;
 
 NotFound.propTypes ={
-    props: PropTypes.object,
+    props: PropTypes.string,
 }
