@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests renders correctly 1`] = `
+Object {
+  "children": Array [
+    <table>
+      <thead>
+        <tr>
+          <td>
+            You answered
+          </td>
+          <td>
+            Option
+          </td>
+          <td>
+            Number of voters
+          </td>
+          <td>
+            Percentage voted
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div>
+              X
+            </div>
+          </td>
+          <td>
+            Build our new application with Javascript
+          </td>
+          <td>
+            1
+          </td>
+          <td>
+            100
+            %
+          </td>
+        </tr>
+        <tr>
+          <td />
+          <td>
+            Build our new application with Typescript
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            0
+            %
+          </td>
+        </tr>
+      </tbody>
+    </table>,
+  ],
+  "props": Object {
+    "className": "poll-radio",
+  },
+  "type": "div",
+}
+`;
