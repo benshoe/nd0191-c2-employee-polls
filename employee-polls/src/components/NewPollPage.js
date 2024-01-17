@@ -27,16 +27,16 @@ const NewPollPage = ({dispatch}) => {
     };
 
     return (
-        <div>
+        <div className="new-poll-page">
             <h1>Create a new poll</h1>
             <form className="poll-radio" onSubmit={handleSubmit}>
                 <div>Would you rather:</div>
-                <label>Option 1: <textarea className="textarea"
+                <label className="option-field">Option 1: <textarea className="textarea"
                                            placeholder="Enter option 1"
                                            value={optionOne}
                                            onChange={handleChangeOne}
                                            maxLength={280}/></label>
-                <label>Option 2: <textarea className="textarea"
+                <label className="option-field">Option 2: <textarea className="textarea"
                                            placeholder="Enter option 2"
                                            value={optionTwo}
                                            onChange={handleChangeTwo}

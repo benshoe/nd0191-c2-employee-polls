@@ -58,12 +58,6 @@ li {
   margin: 10px;
 }
 
-.poll-radio {
-  display: grid;
-  text-align: left;
-  margin-left: 400px;
-}
-
 .posted-by {
   margin-bottom: 30px;
 }
@@ -119,4 +113,19 @@ thead {
 
 .link-button:hover {
   background-color: #0074D9;
+}
+
+.new-poll-page {
+  display: inline-grid;
+}
+
+.poll-radio {
+  display: grid;
+  width: 500px;
+  text-align: left;
+}
+
+.option-field {
+  display: inline-grid;
+  margin-top: 20px;
 }
