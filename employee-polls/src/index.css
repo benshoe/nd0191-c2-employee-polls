@@ -130,3 +130,8 @@ thead {
   display: inline-grid;
   margin-top: 20px;
 }
+
+.question-page {
+  display: inline-grid;
+  justify-items: center;
+}

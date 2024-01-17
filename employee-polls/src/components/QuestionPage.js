@@ -24,7 +24,7 @@ const QuestionPage = (props) => {
     const answeredOne = props.question.optionOne.votes.includes(props.authedUser);
     const answeredTwo = props.question.optionTwo.votes.includes(props.authedUser);
 
-    return <div>
+    return <div className="question-page">
         <h3>Question</h3>
         <img src={avatar} alt={`Avatar of ${props.question.author}`} className="avatar"/>
         <div className="posted-by">Posted by: {author.name}</div>
