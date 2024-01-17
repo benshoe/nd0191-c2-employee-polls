@@ -14,10 +14,8 @@ export function renderWithProviders(
             // Automatically create a store instance if no store was passed in
             store = configureStore({reducer: {authedUser, users}, preloadedState}),
             ...renderOptions
-        } = {}
-    ) {
+        } = {}){
         function Wrapper({children}) {
-            console.log(store);
             return <Provider store={store}><Router>{children}</Router></Provider>
         }
 
