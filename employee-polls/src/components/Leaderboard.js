@@ -10,7 +10,6 @@ const Leaderboard = (props) => {
                 <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Avatar</td>
                     <td># questions asked</td>
                     <td># questions answered</td>
                 </tr>
@@ -20,8 +19,8 @@ const Leaderboard = (props) => {
                     Object.values(props.users)
                         .map(user =>
                             <tr key={user.id}>
-                                <td>{user.name}</td>
-                                <td><img className="avatar-small" src={user.avatarURL} alt={user.name}/></td>
+                                <td className="user-with-avatar">{user.name}
+                                    <img className="avatar-small" src={user.avatarURL} alt={user.name}/></td>
                                 <td>{user.questions.length}</td>
                                 <td>{Object.keys(user.answers).length}</td>
                             </tr>
