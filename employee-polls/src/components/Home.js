@@ -6,9 +6,9 @@ const Home = (props) => {
     if (props.user) {
         return (
             <div>
-                <div className="polls-list">Unanswered polls</div>
+                <div className="polls-title">Unanswered polls</div>
                 <Polls answered={false}/>
-                <div className="polls-list">Answered polls</div>
+                <div className="polls-title">Answered polls</div>
                 <Polls answered={true}/>
             </div>
         )

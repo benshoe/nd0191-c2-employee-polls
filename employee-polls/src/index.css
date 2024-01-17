@@ -72,9 +72,33 @@ thead {
   font-weight: bold;
 }
 
-.polls-list {
+.polls-title {
   margin-top: 40px;
   font-weight: bolder;
+}
+
+.polls-list {
+  border: #0074D9;
+  border-style: solid;
+  border-radius: 50px;
+  padding: 20px;
+  margin-left: 350px;
+  margin-right: 350px;
+}
+
+.polls-item {
+ margin-left: 100px;
+}
+
+.poll-item {
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+
+.poll-item .datefield {
+  width: 100px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .leaderboard {

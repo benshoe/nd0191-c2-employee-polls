@@ -7,10 +7,10 @@ const Polls = (props) => {
     const polls = props.questionIds;
 
     return polls.length === 0 ? <div>No {props.answered ? 'answered' : 'unanswered' } polls</div> : <div>
-        <ul>
+        <ul className="polls-list">
             {
                 polls.map((id) => (
-                    <li key={id}>
+                    <li className="polls-item" key={id}>
                         <Poll id={id}/>
                     </li>
                 ))
