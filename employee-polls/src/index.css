@@ -69,6 +69,7 @@ thead {
 .polls-title {
   margin-top: 40px;
   font-weight: bolder;
+  font-size: 20px;
 }
 
 .polls-list {
@@ -80,7 +81,7 @@ thead {
 }
 
 .polls-item {
- margin-left: 100px;
+ margin-left: 40px;
 }
 
 .poll-item {

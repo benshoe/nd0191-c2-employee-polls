@@ -12,6 +12,7 @@ const Poll = (props) => {
 
     return <div className="poll-item">
         <div className="datefield">{new Date(props.question.timestamp).toLocaleDateString()}</div>
+        <div className="datefield">{new Date(props.question.timestamp).toLocaleTimeString()}</div>
         <Link to={`/questions/${id}`}>
         {!answered && <div className="question">Would you rather <b>{optionOne.text}</b> or <b>{optionTwo.text}</b>?</div>}
         {answered && answeredOne && <div>You would rather <b>{optionOne.text}</b> than <b>{optionTwo.text}</b></div>}
