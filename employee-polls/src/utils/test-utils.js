@@ -6,13 +6,14 @@ import {Provider} from 'react-redux'
 import users from '../reducers/users'
 import {BrowserRouter as Router} from "react-router-dom";
 import {authedUser} from "../reducers/authedUser";
+import questions from "../reducers/questions";
 
 export function renderWithProviders(
         ui,
         {
             preloadedState = {},
             // Automatically create a store instance if no store was passed in
-            store = configureStore({reducer: {authedUser, users}, preloadedState}),
+            store = configureStore({reducer: {authedUser, users, questions}, preloadedState}),
             ...renderOptions
         } = {}){
         function Wrapper({children}) {

@@ -1,6 +1,7 @@
 import NewPollPage from "./NewPollPage";
 import {renderWithProviders} from "../utils/test-utils";
 import userEvent from "@testing-library/user-event";
+import {fireEvent} from "@testing-library/react";
 
 describe('Adding new poll', () => {
     function createComponent() {
@@ -22,16 +23,19 @@ describe('Adding new poll', () => {
         expect(submitButton).toBeDisabled();
     });
 
+    const option1Value = 'Have a succeeding unit test';
+    const option2Value = "Have a useful unit test";
+
     it('should have enabled Submit-button when both input options are filled', async () => {
         const component = createComponent();
 
         const inputOption1 = await component.getByLabelText('Option 1:');
-        await userEvent.type(inputOption1, "Have a succeeding unit test");
-        expect(inputOption1.value).toBe("Have a succeeding unit test");
+        await userEvent.type(inputOption1, option1Value);
+        expect(inputOption1.value).toBe(option1Value);
 
         const inputOption2 = await component.getByLabelText('Option 2:');
-        await userEvent.type(inputOption2, "Have a useful unit test");
-        expect(inputOption2.value).toBe("Have a useful unit test");
+        await userEvent.type(inputOption2, option2Value);
+        expect(inputOption2.value).toBe(option2Value);
 
         const submitButton = await getSubmitButton(component);
         expect(submitButton).toBeEnabled();
@@ -41,8 +45,8 @@ describe('Adding new poll', () => {
         const component = createComponent();
 
         const inputOption1 = await component.getByLabelText('Option 1:');
-        await userEvent.type(inputOption1, "Have a succeeding unit test");
-        expect(inputOption1.value).toBe("Have a succeeding unit test");
+        fireEvent.change(inputOption1, { target: { value: option1Value } });
+        expect(inputOption1.value).toBe(option1Value);
 
         const submitButton = await getSubmitButton(component);
         expect(submitButton).toBeDisabled();
@@ -52,8 +56,8 @@ describe('Adding new poll', () => {
         const component = createComponent();
 
         const inputOption2 = await component.getByLabelText('Option 2:');
-        await userEvent.type(inputOption2, "Have a useful unit test");
-        expect(inputOption2.value).toBe("Have a useful unit test");
+        fireEvent.change(inputOption2, { target: { value: option2Value } });
+        expect(inputOption2.value).toBe(option2Value);
 
         const submitButton = await getSubmitButton(component);
         expect(submitButton).toBeDisabled();
