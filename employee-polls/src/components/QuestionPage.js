@@ -45,7 +45,7 @@ const mapStateToProps = ({authedUser, questions, users}, props) => {
 export default withRouter(connect(mapStateToProps)(QuestionPage));
 
 QuestionPage.propTypes = {
-    question: PropTypes.object.isRequired,
+    question: PropTypes.object,
     users: PropTypes.object.isRequired,
     authedUser: PropTypes.string.isRequired,
     id: PropTypes.string,
