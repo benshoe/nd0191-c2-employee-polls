@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import {useState} from "react";
 import {handleAddQuestion} from "../actions/questions";
 import {useNavigate} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const NewPollPage = ({dispatch}) => {
 
@@ -31,7 +32,7 @@ const NewPollPage = ({dispatch}) => {
             <h1>Create a new poll</h1>
             <form className="poll-radio" onSubmit={handleSubmit}>
                 <div>Would you rather:</div>
-                <label className="option-field">Option 1: <textarea className="textarea"
+                <label className="option-field">Option 1: <textarea className="textarea" autoFocus={true}
                                            placeholder="Enter option 1"
                                            value={optionOne}
                                            onChange={handleChangeOne}
@@ -48,3 +49,7 @@ const NewPollPage = ({dispatch}) => {
 }
 
 export default connect()(NewPollPage);
+
+NewPollPage.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}

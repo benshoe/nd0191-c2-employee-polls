@@ -1,15 +1,31 @@
 import {connect} from "react-redux";
 import Polls from "./Polls";
 import PropTypes from "prop-types";
+import {useState} from "react";
 
 const Home = (props) => {
+    const [answeredPolls, setAnsweredPolls] = useState(false);
+
+
+    const answered = (e) => {
+        const answeredPolls = e.target.value === 'Answered';
+        setAnsweredPolls(answeredPolls);
+    };
+
     if (props.user) {
         return (
             <div>
-                <div className="polls-title">Unanswered polls</div>
-                <Polls answered={false}/>
-                <div className="polls-title">Answered polls</div>
-                <Polls answered={true}/>
+                <form>
+                    <label>
+                        <input type="radio" name="polls" id="unanswered" value="Unanswered" onChange={answered}
+                               defaultChecked/>Unanswered
+                    </label>
+
+                    <label>
+                        <input type="radio" name="polls" id="answered" value="Answered" onChange={answered}/>Answered
+                    </label>
+                </form>
+                <Polls answered={answeredPolls}/>
             </div>
         )
     }
