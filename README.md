@@ -1,5 +1,11 @@
 # Employee Polls Project
 
+## Github repository
+The project can be cloned from: https://github.com/benshoe/nd0191-c2-employee-polls.git
+
+After cloning the project navigate to the project directory /employee-polls/ and run `npm install` to
+install the necessary packages.
+
 ## Available Scripts
 
 In the project directory, you can run:
